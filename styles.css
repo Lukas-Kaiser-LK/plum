@@ -1,7 +1,7 @@
 /* Global Settings */
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  max-width: 50rem;
+  max-width: 55rem;
   margin: auto;
   padding: 2rem;
 }
@@ -21,6 +21,7 @@ h3 {
   font-size: 1.7rem;
 }
 
+
 /* Hyperlink and button text colors */
 a:link,
 :visited,
@@ -36,6 +37,7 @@ a:active,
 .button:active {
   color: #A87C52;
 }
+
 
 /* Buttons rules excluding the text colors */
 .button {
@@ -55,4 +57,15 @@ a:active,
 }
 .button:active {
   border-color: #A87C52;
+}
+
+
+/* Navigation Bars */
+nav {
+  display: flex;
+  gap: 2rem;
+}
+footer {
+  display: flex;
+  gap: 2rem
 }
