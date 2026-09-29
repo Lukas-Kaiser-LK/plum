@@ -1,0 +1,58 @@
+/* Global Settings */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  max-width: 50rem;
+  margin: auto;
+  padding: 2rem;
+}
+p,
+ul,
+form {
+  font-size: 1.2rem;
+}
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 2.5rem;
+  margin-top: 6rem ;
+}
+h3 {
+  font-size: 1.7rem;
+}
+
+/* Hyperlink and button text colors */
+a:link,
+:visited,
+.button {
+  text-decoration: none;
+  color: #75a539
+}
+a:hover,
+.button:hover {
+  color: #8b728e
+}
+a:active,
+.button:active {
+  color: #A87C52;
+}
+
+/* Buttons rules excluding the text colors */
+.button {
+  border-style: solid;
+  border-color: #75a539;
+  border-radius: 30%;
+  padding: 4px;
+  background: none;
+  text-decoration: none;
+  margin: 1%;
+  font-size: 1.2rem;
+}
+.button:hover {
+  border-color: #8b728e;
+  border-radius: 20%;
+  padding: 5px;
+}
+.button:active {
+  border-color: #A87C52;
+}
