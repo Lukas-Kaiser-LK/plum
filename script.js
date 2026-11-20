@@ -7,15 +7,20 @@ newmeetingbutton.addEventListener(
     function () {
         const newmeeting = document.createElement("li");
         newmeeting.textContent = "New Meeting"
+        newmeeting.contentEditable = "true"
         meetings.prepend(newmeeting)
     }
 );
 
-meetings.addEventListener(
-        "click",
-        function (clickinfo) {
-        const clickedmeeting = clickinfo.target
-        console.log(clickedmeeting);
-        }
+
+// meetings.addEventListener(
+//         "click",
+//         function (clickinfo) {
+//         const clickedmeeting = clickinfo.target
+//         console.log(clickedmeeting);
+//         const editablemeeting = document.createElement("input")
+//         editablemeeting.value = clickedmeeting
+//         editablemeeting.prepend(clickedmeeting)
+//         }
         
-)
+// )
