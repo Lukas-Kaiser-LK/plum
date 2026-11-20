@@ -1,11 +1,21 @@
-const newmeetingbutton = document.querySelector("#newmeetingbutton");
+const newmeetingbutton = document.querySelector("#newmeeting");
+const meetings = document.querySelector("#meetings");
+
 
 newmeetingbutton.addEventListener(
     "click",
     function () {
-        const newitem = document.createElement("li");
-        newitem.textContent = "New Meeting"
-        const meetingslist = document.querySelector("#listofmeetings");
-        meetingslist.prepend(newitem)
+        const newmeeting = document.createElement("li");
+        newmeeting.textContent = "New Meeting"
+        meetings.prepend(newmeeting)
     }
 );
+
+meetings.addEventListener(
+        "click",
+        function (clickinfo) {
+        const clickedmeeting = clickinfo.target
+        console.log(clickedmeeting);
+        }
+        
+)
