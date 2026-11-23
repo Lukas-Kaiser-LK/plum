@@ -10,10 +10,10 @@ createmeetingbutton.addEventListener(
         meetingitem.append(meetingname)
         meetingname.textContent = "New Meeting";
         meetingslist.prepend(meetingitem)
+        meetingname.click()
     }
 );
 
-// For 
 meetingslist.addEventListener(
     "click",
     function (clickinfo) {
@@ -39,7 +39,6 @@ meetingslist.addEventListener(
             editablemeeting.addEventListener(
                 "blur",
                 function (focusinfo) {
-                    console.log(focusinfo.target.value)
                     clickedmeeting.textContent = editablemeeting.value
                     clickedmeeting.textContent = clickedmeeting.textContent.trim()
                     editablemeeting.replaceWith(clickedmeeting)
