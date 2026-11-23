@@ -1,6 +1,7 @@
 const createmeetingbutton = document.querySelector("#createmeeting");
 const meetingslist = document.querySelector("#meetingslist");
 
+//Create a new meeting item.
 createmeetingbutton.addEventListener(
     "click",
     function () {
@@ -14,9 +15,11 @@ createmeetingbutton.addEventListener(
     }
 );
 
+//Edit meeting names.
 meetingslist.addEventListener(
     "click",
     function (clickinfo) {
+        //Enable name editing for the meetings.
         const clickedmeeting = clickinfo.target;
         const editablemeeting = document.createElement("input"); //creating an editable meeting as an input
         if(clickedmeeting.tagName == "SPAN") {
@@ -25,6 +28,7 @@ meetingslist.addEventListener(
             editablemeeting.focus()
             editablemeeting.select()
 
+        //Save the edited meeting name.
             editablemeeting.addEventListener(
                 "keydown",
                 function (keyinfo) {
@@ -35,7 +39,6 @@ meetingslist.addEventListener(
 
                 }
             )
-
             editablemeeting.addEventListener(
                 "blur",
                 function (focusinfo) {
@@ -48,4 +51,3 @@ meetingslist.addEventListener(
         }
     }     
 )
-
