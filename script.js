@@ -12,17 +12,26 @@ createmeetingbutton.addEventListener(
     }
 );
 
+// For 
 meetingslist.addEventListener(
     "click",
     function (clickinfo) {
         const clickedmeeting = clickinfo.target;
         const editablemeeting = document.createElement("input"); //creating an editable meeting as an input
-        console.log (clickedmeeting.tagName)
         if(clickedmeeting.tagName == "SPAN") {
             editablemeeting.value = clickedmeeting.textContent; //the default value of the editable meeting
-            clickedmeeting.textContent = '';
-            clickedmeeting.append(editablemeeting); //replace the text content of the clickedmeeting with editable meeting
-        }
+            clickedmeeting.replaceWith(editablemeeting)
+
+            editablemeeting.addEventListener(
+                "blur",
+                function (focusinfo) {
+                    console.log(focusinfo.target.value)
+                    clickedmeeting.textContent = editablemeeting.value
+                    editablemeeting.replaceWith(clickedmeeting)
+                }
+            )
+            
+        } 
     }     
 )
 
