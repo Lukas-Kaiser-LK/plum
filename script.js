@@ -6,6 +6,7 @@ createmeetingbutton.addEventListener(
     function () {
         const meetingitem = document.createElement("li");
         const meetingname = document.createElement("span")
+        meetingname.tabIndex = "0"
         meetingitem.append(meetingname)
         meetingname.textContent = "New Meeting";
         meetingslist.prepend(meetingitem)
@@ -21,17 +22,31 @@ meetingslist.addEventListener(
         if(clickedmeeting.tagName == "SPAN") {
             editablemeeting.value = clickedmeeting.textContent; //the default value of the editable meeting
             clickedmeeting.replaceWith(editablemeeting)
+            editablemeeting.focus()
+            editablemeeting.select()
+
+            editablemeeting.addEventListener(
+                "keydown",
+                function (keyinfo) {
+                    console.log(keyinfo.key)
+                    if(keyinfo.key == "Escape" || keyinfo.key == "Enter") {
+                        editablemeeting.blur()
+                    }
+
+                }
+            )
 
             editablemeeting.addEventListener(
                 "blur",
                 function (focusinfo) {
                     console.log(focusinfo.target.value)
                     clickedmeeting.textContent = editablemeeting.value
+                    clickedmeeting.textContent = clickedmeeting.textContent.trim()
                     editablemeeting.replaceWith(clickedmeeting)
                 }
             )
             
-        } 
+        }
     }     
 )
 
