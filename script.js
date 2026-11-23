@@ -7,11 +7,14 @@ createmeetingbutton.addEventListener(
     function () {
         const meetingitem = document.createElement("li");
         const meetingname = document.createElement("span")
+        const today = new Date().toLocaleDateString("us-US",{day: "numeric", month: "long", year: "numeric"})
         meetingname.tabIndex = "0"
         meetingitem.append(meetingname)
-        meetingname.textContent = "New Meeting";
+        meetingname.textContent = "New Meeting | " + today;
         meetingslist.prepend(meetingitem)
         meetingname.click()
+        // console.log(new Date("us-Us" ,{day: "numeric", month: "long", year: "numeric"}))
+        console.log(new Date().toLocaleDateString("us-US",{day: "numeric", month: "long", year: "numeric"}))  
     }
 );
 
