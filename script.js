@@ -13,10 +13,40 @@ createmeetingbutton.addEventListener(
         meetingname.textContent = "New Meeting | " + today;
         meetingslist.prepend(meetingitem)
         meetingname.click()
-        // console.log(new Date("us-Us" ,{day: "numeric", month: "long", year: "numeric"}))
-        console.log(new Date().toLocaleDateString("us-US",{day: "numeric", month: "long", year: "numeric"}))  
     }
 );
+
+// Shotcut for creating a meeting.
+let ntimestamp
+let mtimestamp
+addEventListener(
+    "keydown",
+    function (keyinfo) {
+        if(keyinfo.target.tagName != "INPUT") { //If user is not curently editing a meeting.
+            if(keyinfo.key == "n") {
+                // Measures N timestamp.
+                ntimestamp = keyinfo.timeStamp
+                // Supportive shortcut: If you try to press N & M at the time, sometimes you might press M first. This makes sures meetting will be created anyway.
+                if(ntimestamp - mtimestamp < 50) {
+                    keyinfo.preventDefault()
+                    createmeetingbutton.click()
+                }
+            }
+
+            if(keyinfo.key == "m") {
+                // Measures M timestamp.
+                mtimestamp = keyinfo.timeStamp
+                // Main shortcut: Press N then M to create a meeting.
+                if(mtimestamp - ntimestamp < 600) {
+                    keyinfo.preventDefault()
+                    createmeetingbutton.click()
+                }
+            }
+        }
+
+
+    }
+)
 
 //Edit meeting names.
 meetingslist.addEventListener(
@@ -35,7 +65,6 @@ meetingslist.addEventListener(
             editablemeeting.addEventListener(
                 "keydown",
                 function (keyinfo) {
-                    console.log(keyinfo.key)
                     if(keyinfo.key == "Escape" || keyinfo.key == "Enter") {
                         editablemeeting.blur()
                     }
