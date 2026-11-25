@@ -68,12 +68,13 @@ input {
   background: none;
 }
 
+/* Tooltip for Create New Meeting button */
 #createmeetingtooltip {
   visibility: hidden;
 }
 #createmeeting:hover + #createmeetingtooltip {
   visibility: visible;
-  background: #292929;
+  background: #A87C52;
   color: white;
   font-size: 0.5rem;
   border-radius: 7px;

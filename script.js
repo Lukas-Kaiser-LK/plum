@@ -36,15 +36,13 @@ addEventListener(
             if(keyinfo.key == "m") {
                 // Measures M timestamp.
                 mtimestamp = keyinfo.timeStamp
-                // Main shortcut: Press N then M to create a meeting.
+                // Main shortcu t: Press N then M to create a meeting.
                 if(mtimestamp - ntimestamp < 600) {
                     keyinfo.preventDefault()
                     createmeetingbutton.click()
                 }
             }
         }
-
-
     }
 )
 
@@ -68,7 +66,6 @@ meetingslist.addEventListener(
                     if(keyinfo.key == "Escape" || keyinfo.key == "Enter") {
                         editablemeeting.blur()
                     }
-
                 }
             )
             editablemeeting.addEventListener(
@@ -79,7 +76,6 @@ meetingslist.addEventListener(
                     editablemeeting.replaceWith(clickedmeeting)
                 }
             )
-            
         }
     }     
 )
