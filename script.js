@@ -2,6 +2,7 @@ const createmeetingbutton = document.querySelector("#createmeeting");
 const meetingslist = document.querySelector("#meetingslist");
 
 //Create a new meeting item.
+let meetingname
 createmeetingbutton.addEventListener(
     "click",
     function () {
@@ -13,6 +14,7 @@ createmeetingbutton.addEventListener(
         meetingname.textContent = "New Meeting | " + today;
         meetingslist.prepend(meetingitem)
         meetingname.click()
+        fetch("http://localhost:3000/meetings/new");
     }
 );
 
