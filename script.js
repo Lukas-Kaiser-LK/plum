@@ -5,7 +5,7 @@ const meetingslist = document.querySelector("#meetingslist");
 let meetingname
 createmeetingbutton.addEventListener(
     "click",
-    function () {
+    async function () {
         const meetingitem = document.createElement("li");
         const meetingname = document.createElement("span")
         const today = new Date().toLocaleDateString("us-US",{day: "numeric", month: "long", year: "numeric"})
@@ -13,8 +13,13 @@ createmeetingbutton.addEventListener(
         meetingitem.append(meetingname)
         meetingname.textContent = "New Meeting | " + today;
         meetingslist.prepend(meetingitem)
-        meetingname.click()
-        fetch("http://localhost:3000/meetings/new");
+        meetingname.click();
+
+        const answer = await fetch("http://localhost:3000/meetings/new");
+        const textanswer = await answer.text()
+        console.log(textanswer) 
+        const previousmeeetings = JSON.parse(textanswer);
+        console.log(previousmeeetings);
     }
 );
 

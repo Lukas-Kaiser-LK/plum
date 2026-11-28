@@ -1,5 +1,7 @@
 // const meetingname = document.querySelector(meetingname)
-const meetings = ['Plum Brainstroming', 'Robotics Meeting 2']
+const meetings = [
+    'Plum Brainstroming',
+    'Robotics Meeting 2'];
 
 const http = require("node:http");
 const server = http.createServer(function (request, response) {
@@ -9,12 +11,12 @@ const server = http.createServer(function (request, response) {
     }
     else if(request.url == '/meetings') {
         console.log("meetings");
-        response.end(JSON.stringify(meetings));
+        response.end(JSON.stringify(meetings))
     }
     else if(request.url == '/meetings/new') {
         console.log('newmeeting');
-        meetings.push('Plum Daily')
-        response.end('new meeting is created.')
+        meetings.unshift('Plum Daily')
+        response.end(JSON.stringify(meetings));
     }
     else if(request.url == '/login') {
         console.log("login");
@@ -30,4 +32,4 @@ const server = http.createServer(function (request, response) {
 }
 );
 server.listen(3000);
-console.log(server.listening);
+console.log("Server status:",server.listening);
